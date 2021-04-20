@@ -17,7 +17,7 @@ Currently Supported:
 - Exception handling (use `.throws(ex) {}` in the routes with an APIException object) with Status pages interop (with .withAPI in the StatusPages configuration)
 - tags (`.tag(tag) {}` in route with a tag object, currently must be an enum, but may be subject to change)
 - Spec compliant Parameter Parsing (see basic example)
-- Legacy Polymorphism with use of `@DiscriminatorAnnotation()` attribute and sealed classes 
+- Legacy Polymorphism with use of `@DiscriminatorAnnotation()` attribute and sealed classes
 
 Extra Features:
 - Includes Swagger-UI (enabled by default, can be managed in the `install(OpenAPIGen) { ... }` section)
@@ -46,9 +46,15 @@ allprojects {
 }
 ```
 Step 2. Add the dependency:
-```groovy
+```Kotlin
 dependencies {
-        implementation 'com.1gravity:Ktor-OpenAPI-Generator:-SNAPSHOT'
+    implementation("com.github.1gravity:Ktor-OpenAPI-Generator:-SNAPSHOT")
+}
+```
+
+```Groovy
+dependencies {
+    implementation 'com.github.1gravity:Ktor-OpenAPI-Generator:-SNAPSHOT'
 }
 ```
 
@@ -66,7 +72,6 @@ include 'openapigen'
 Declare the dependency in the main build.gradle
 ```groovy
 apply plugin: 'kotlin'
-
 ...
 
 dependencies {
