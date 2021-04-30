@@ -8,7 +8,6 @@ import org.slf4j.LoggerFactory
 
 val Application.openAPIGen: OpenAPIGen get() = feature(OpenAPIGen)
 
-
 internal fun Any.classLogger(): Logger {
     return LoggerFactory.getLogger(this::class.java)
 }
@@ -36,4 +35,3 @@ fun convertToValue(value: Any?, serializationSettings: SerializationSettings = S
         else -> value
     }
 }
-

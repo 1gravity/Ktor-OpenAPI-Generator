@@ -32,19 +32,19 @@ fun NormalOpenAPIRoute.SealedRoute() {
 
 
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME)
-@DiscriminatorAnnotation()
+@DiscriminatorAnnotation
 sealed class Base {
     @JsonTypeName("A")
-    @DiscriminatorAnnotation()
+    @DiscriminatorAnnotation
     class A(val str: String) : Base()
 
     @JsonTypeName("B")
-    @DiscriminatorAnnotation()
+    @DiscriminatorAnnotation
     class B(@Min(0) @Max(2) val i: Int) : Base()
 
     @WithExample
     @JsonTypeName("C")
-    @DiscriminatorAnnotation()
+    @DiscriminatorAnnotation
     class C(@Clamp(0, 10) val l: Long) : Base() {
         companion object : ExampleProvider<C> {
             override val example: C = C(5)

@@ -3,7 +3,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     kotlin("jvm")
-    id("maven-publish")
+    `maven-publish`
 }
 
 repositories {
@@ -18,17 +18,17 @@ val logVersion = findProperty("logback_version")?.toString()  ?: ""
 dependencies {
     implementation(kotlin("stdlib", kotlinVersion))
     implementation("org.slf4j:slf4j-api:$slf4jVersion")
-    implementation("io.ktor:ktor-server-core:$ktorVersion")
+    testImplementation("io.ktor:ktor-server-core:$ktorVersion")
     implementation("io.ktor:ktor-server-host-common:$ktorVersion")
     implementation("io.ktor:ktor-metrics:$ktorVersion")
     implementation("io.ktor:ktor-server-sessions:$ktorVersion")
 
-    implementation("io.ktor:ktor-jackson:$ktorVersion") // needed for parameter parsing and multipart parsing
-    implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.9.8") // needed for multipart parsing
-    implementation("org.webjars:swagger-ui:3.25.0")
+    implementation("org.webjars:swagger-ui:3.47.1")
 
     implementation("org.reflections:reflections:0.9.11") // only used while initializing
 
+    testImplementation("io.ktor:ktor-jackson:$ktorVersion") // needed for parameter parsing and multipart parsing
+    testImplementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.9.8") // needed for multipart parsing
     testImplementation("io.ktor:ktor-server-netty:$ktorVersion")
     testImplementation("io.ktor:ktor-server-test-host:$ktorVersion")
     testImplementation("ch.qos.logback:logback-classic:$logVersion")

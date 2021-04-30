@@ -36,7 +36,6 @@ class CachingModuleProvider(previous: Iterable<Pair<KType, OpenAPIModule>> = lis
         synchronized(modules) { modules.removeIf { it.second == module } }
     }
 
-    override fun child(): CachingModuleProvider {
-        return CachingModuleProvider(modules)
-    }
+    override fun child() = CachingModuleProvider(modules)
+
 }

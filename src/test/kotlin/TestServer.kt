@@ -87,95 +87,102 @@ object TestServer {
 
             SealedRoute()
 
-            route("long").get<LongParam, LongResponse>(
-                info("Long Param Endpoint", "This is a String Param Endpoint"),
-                example = LongResponse(Long.MAX_VALUE)
-            ) { params ->
-                respond(LongResponse(params.a))
-            }
+            route("long")
+                .get<LongParam, LongResponse>(
+                    info("Long Param Endpoint", "This is a String Param Endpoint"),
+                    example = LongResponse(Long.MAX_VALUE)
+                ) { params ->
+                    respond(LongResponse(params.a))
+                }
 
-            route("validate-string").post<Unit, StringResponse, StringValidatorsExample>(
-                info(
-                    "This endpoint demonstrates the usage of String validators",
-                    "This endpoint demonstrates the usage of String validators"
-                ),
-                exampleRequest = StringValidatorsExample(
-                    "A string that is at least 2 characters long",
-                    "A short string",
-                    "Between 2 and 20",
-                    "5a21be2"
-                ),
-                exampleResponse = StringResponse("All of the fields were valid")
-            ) { _, _ ->
-                respond(StringResponse("All of the fields were valid"))
-            }
+            route("validate-string")
+                .post<Unit, StringResponse, StringValidatorsExample>(
+                    info(
+                        "This endpoint demonstrates the usage of String validators",
+                        "This endpoint demonstrates the usage of String validators"
+                    ),
+                    exampleRequest = StringValidatorsExample(
+                        "A string that is at least 2 characters long",
+                        "A short string",
+                        "Between 2 and 20",
+                        "5a21be2"
+                    ),
+                    exampleResponse = StringResponse("All of the fields were valid")
+                ) { _, _ ->
+                    respond(StringResponse("All of the fields were valid"))
+                }
 
-            route("validate-number").post<Unit, StringResponse, NumberValidatorsExample>(
-                info(
-                    "This endpoint demonstrates the usage of number validators",
-                    "This endpoint demonstrates the usage of number validators"
-                ),
-                exampleRequest = NumberValidatorsExample(
-                    1,
-                    56,
-                    15.02f,
-                    0.023f
-                ),
-                exampleResponse = StringResponse("All of the fields were valid")
-            ) { _, _ ->
-                respond(StringResponse("All of the fields were valid"))
-            }
+            route("validate-number")
+                .post<Unit, StringResponse, NumberValidatorsExample>(
+                    info(
+                        "This endpoint demonstrates the usage of number validators",
+                        "This endpoint demonstrates the usage of number validators"
+                    ),
+                    exampleRequest = NumberValidatorsExample(
+                        1,
+                        56,
+                        15.02f,
+                        0.023f
+                    ),
+                    exampleResponse = StringResponse("All of the fields were valid")
+                ) { _, _ ->
+                    respond(StringResponse("All of the fields were valid"))
+                }
 
             route("status/codes") {
-                route("201").status(201) {
-                    // all endpoints in this block respond a 201 status code unless specified otherwise
+                route("201")
+                    .status(201) {
+                        // all endpoints in this block respond a 201 status code unless specified otherwise
 
-                    get<StringParam, StringResponse>(
+                        get<StringParam, StringResponse>(
+                            info(
+                                "201 String Param Endpoint",
+                                "This is a String Param Endpoint that has a 201 status code"
+                            ),
+                            example = StringResponse("Hi")
+                        ) { params ->
+                            respond(StringResponse(params.a))
+                        }
+
+                        route("reset")
+                            .get<StringParam, StringResponse>(
+                                info(
+                                    "String Param Endpoint with @response based status code",
+                                    "This is a String Param Endpoint that resets the status code back to the one provided by @Response"
+                                ),
+                                responseAnnotationStatus(),
+                                example = StringResponse("Hi")
+                            ) { params ->
+                                respond(StringResponse(params.a))
+                            }
+                    }
+
+                route("202")
+                    .get<StringParam, StringResponse>(
                         info(
-                            "201 String Param Endpoint",
-                            "This is a String Param Endpoint that has a 201 status code"
+                            "String Param Endpoint with inline 202 response",
+                            "This is a String Param Endpoint that has a 202 response code"
                         ),
+                        status(HttpStatusCode.Accepted),
                         example = StringResponse("Hi")
                     ) { params ->
                         respond(StringResponse(params.a))
                     }
-
-                    route("reset").get<StringParam, StringResponse>(
-                        info(
-                            "String Param Endpoint with @response based status code",
-                            "This is a String Param Endpoint that resets the status code back to the one provided by @Response"
-                        ),
-                        responseAnnotationStatus(),
-                        example = StringResponse("Hi")
-                    ) { params ->
-                        respond(StringResponse(params.a))
-                    }
-                }
-
-                route("202").get<StringParam, StringResponse>(
-                    info(
-                        "String Param Endpoint with inline 202 response",
-                        "This is a String Param Endpoint that has a 202 response code"
-                    ),
-                    status(HttpStatusCode.Accepted),
-                    example = StringResponse("Hi")
-                ) { params ->
-                    respond(StringResponse(params.a))
-                }
             }
 
             route("again") {
                 tag(Tags.EXAMPLE) {
 
-                    route("exception").throws<NormalOpenAPIRoute, CustomException, String>(
-                        status = HttpStatusCode.ExpectationFailed,
-                        example = "example"
-                    ) {
-                        get<StringParam, StringResponse>(
-                            info("String Param Endpoint", "This is a String Param Endpoint"),
-                            example = StringResponse("Hi")
-                        ) { throw CustomException() }
-                    }
+                    route("exception")
+                        .throws<NormalOpenAPIRoute, CustomException, String>(
+                            status = HttpStatusCode.ExpectationFailed,
+                            example = "example"
+                        ) {
+                            get<StringParam, StringResponse>(
+                                info("String Param Endpoint", "This is a String Param Endpoint"),
+                                example = StringResponse("Hi")
+                            ) { throw CustomException() }
+                        }
 
                     get<StringParam, StringResponse>(
                         info("String Param Endpoint", "This is a String Param Endpoint"),
@@ -184,12 +191,13 @@ object TestServer {
                         respond(StringResponse(params.a))
                     }
 
-                    route("long").get<LongParam, LongResponse>(
-                        info("Long Param Endpoint", "This is a String Param Endpoint"),
-                        example = LongResponse(Long.MAX_VALUE)
-                    ) { params ->
-                        respond(LongResponse(params.a))
-                    }
+                    route("long")
+                        .get<LongParam, LongResponse>(
+                            info("Long Param Endpoint", "This is a String Param Endpoint"),
+                            example = LongResponse(Long.MAX_VALUE)
+                        ) { params ->
+                            respond(LongResponse(params.a))
+                        }
                 }
             }
 
@@ -247,7 +255,6 @@ object TestServer {
             }
         }
     }
-
 
     fun Application.Setup() {
         //define basic OpenAPI info

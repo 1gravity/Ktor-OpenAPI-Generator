@@ -37,9 +37,9 @@ inline fun <TRoute : OpenAPIRoute<TRoute>> TRoute.route(path: String, crossinlin
 }
 
 fun <TRoute : OpenAPIRoute<TRoute>> TRoute.method(method: HttpMethod): TRoute {
-    return child(ktorRoute.createChild(HttpMethodRouteSelector(method))).apply {
-        provider.registerModule(HttpMethodProviderModule(method))
-    }
+    val selector = HttpMethodRouteSelector(method)
+    val childRoute = ktorRoute.createChild(selector)
+    return child(childRoute).apply { provider.registerModule(HttpMethodProviderModule(method)) }
 }
 
 /**
