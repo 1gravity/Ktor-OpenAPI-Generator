@@ -1,6 +1,6 @@
 package com.papsign.ktor.openapigen.modules.providers
 
-import com.papsign.ktor.openapigen.APIException
+import com.papsign.ktor.openapigen.exception.APIException
 import com.papsign.ktor.openapigen.modules.DependentModule
 import com.papsign.ktor.openapigen.modules.DependentModule.Companion.handler
 import com.papsign.ktor.openapigen.modules.OpenAPIModule

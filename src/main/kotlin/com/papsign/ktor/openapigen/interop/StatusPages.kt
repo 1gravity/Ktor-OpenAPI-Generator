@@ -1,6 +1,6 @@
 package com.papsign.ktor.openapigen.interop
 
-import com.papsign.ktor.openapigen.APIException.Companion.apiException
+import com.papsign.ktor.openapigen.exception.APIException.Companion.apiException
 import com.papsign.ktor.openapigen.OpenAPIGen
 import com.papsign.ktor.openapigen.modules.registerModule
 import com.papsign.ktor.openapigen.route.ThrowsInfo
@@ -46,7 +46,7 @@ class OpenAPIGenStatusPagesInterop(val api: OpenAPIGen, val statusCfg: StatusPag
      * Registers a handler for exception type [TThrowable] and returns a [status] page
      */
     inline fun <reified TThrowable : Throwable> exception(status: HttpStatusCode) {
-        val ex = apiException<TThrowable>(status)
+        val ex = apiException<TThrowable, Unit>(status)
         api.globalModuleProvider.registerModule(ThrowsInfo(listOf(ex)))
         statusCfg.exception<TThrowable> {
             call.respond(status)

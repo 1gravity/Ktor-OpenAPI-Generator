@@ -1,6 +1,6 @@
 package com.papsign.ktor.openapigen.route.path.normal
 
-import com.papsign.ktor.openapigen.APIException
+import com.papsign.ktor.openapigen.exception.APIException
 import com.papsign.ktor.openapigen.modules.RouteOpenAPIModule
 import com.papsign.ktor.openapigen.route.method
 import com.papsign.ktor.openapigen.route.preHandle

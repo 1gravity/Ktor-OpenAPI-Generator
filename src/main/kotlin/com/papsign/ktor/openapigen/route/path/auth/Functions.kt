@@ -1,9 +1,8 @@
 package com.papsign.ktor.openapigen.route.path.auth
 
-import com.papsign.ktor.openapigen.APIException
+import com.papsign.ktor.openapigen.exception.APIException
 import com.papsign.ktor.openapigen.modules.RouteOpenAPIModule
 import com.papsign.ktor.openapigen.route.method
-import com.papsign.ktor.openapigen.route.path.normal.route
 import com.papsign.ktor.openapigen.route.preHandle
 import com.papsign.ktor.openapigen.route.response.OpenAPIPipelineAuthContext
 import com.papsign.ktor.openapigen.route.throws
