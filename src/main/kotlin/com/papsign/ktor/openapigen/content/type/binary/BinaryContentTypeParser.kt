@@ -5,7 +5,7 @@ import com.papsign.ktor.openapigen.annotations.Response
 import com.papsign.ktor.openapigen.content.type.BodyParser
 import com.papsign.ktor.openapigen.content.type.ContentTypeProvider
 import com.papsign.ktor.openapigen.content.type.ResponseSerializer
-import com.papsign.ktor.openapigen.exceptions.assertContent
+import com.papsign.ktor.openapigen.exception.assertContent
 import com.papsign.ktor.openapigen.model.operation.MediaTypeModel
 import com.papsign.ktor.openapigen.model.schema.DataFormat
 import com.papsign.ktor.openapigen.model.schema.DataType

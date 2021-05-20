@@ -4,7 +4,7 @@ import com.papsign.ktor.openapigen.*
 import com.papsign.ktor.openapigen.annotations.mapping.openAPIName
 import com.papsign.ktor.openapigen.content.type.BodyParser
 import com.papsign.ktor.openapigen.content.type.ContentTypeProvider
-import com.papsign.ktor.openapigen.exceptions.assertContent
+import com.papsign.ktor.openapigen.exception.assertContent
 import com.papsign.ktor.openapigen.model.operation.MediaTypeEncodingModel
 import com.papsign.ktor.openapigen.model.operation.MediaTypeModel
 import com.papsign.ktor.openapigen.model.schema.SchemaModel

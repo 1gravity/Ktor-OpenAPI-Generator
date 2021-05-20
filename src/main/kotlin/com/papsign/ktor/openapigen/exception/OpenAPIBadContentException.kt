@@ -1,4 +1,4 @@
-package com.papsign.ktor.openapigen.exceptions
+package com.papsign.ktor.openapigen.exception
 
 class OpenAPIBadContentException(msg: String): Exception(msg)
 

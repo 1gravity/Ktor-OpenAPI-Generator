@@ -3,8 +3,8 @@ package com.papsign.ktor.openapigen.route
 import com.papsign.ktor.openapigen.classLogger
 import com.papsign.ktor.openapigen.content.type.*
 import com.papsign.ktor.openapigen.content.type.ktor.KtorContentProvider
-import com.papsign.ktor.openapigen.exceptions.OpenAPINoParserException
-import com.papsign.ktor.openapigen.exceptions.OpenAPINoSerializerException
+import com.papsign.ktor.openapigen.exception.OpenAPINoParserException
+import com.papsign.ktor.openapigen.exception.OpenAPINoSerializerException
 import com.papsign.ktor.openapigen.modules.CachingModuleProvider
 import com.papsign.ktor.openapigen.modules.OpenAPIModule
 import com.papsign.ktor.openapigen.modules.ofType

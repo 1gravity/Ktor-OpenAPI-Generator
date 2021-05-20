@@ -7,7 +7,7 @@ import com.papsign.ktor.openapigen.annotations.parameters.HeaderParam
 import com.papsign.ktor.openapigen.annotations.parameters.PathParam
 import com.papsign.ktor.openapigen.annotations.parameters.QueryParam
 import com.papsign.ktor.openapigen.annotations.parameters.apiParam
-import com.papsign.ktor.openapigen.exceptions.OpenAPIRequiredFieldException
+import com.papsign.ktor.openapigen.exception.OpenAPIRequiredFieldException
 import com.papsign.ktor.openapigen.memberProperties
 import com.papsign.ktor.openapigen.model.operation.ParameterLocation
 import com.papsign.ktor.openapigen.model.operation.ParameterModel

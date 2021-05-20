@@ -1,4 +1,4 @@
-package com.papsign.ktor.openapigen.exceptions
+package com.papsign.ktor.openapigen.exception
 
 import io.ktor.http.ContentType
 
