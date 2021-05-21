@@ -1,4 +1,4 @@
-import com.papsign.ktor.openapigen.getKType
+import com.papsign.ktor.openapigen.util.getKType
 import org.junit.Test
 import java.util.*
 import kotlin.reflect.KType

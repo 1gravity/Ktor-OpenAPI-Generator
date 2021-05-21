@@ -3,8 +3,8 @@
 package com.papsign.ktor.openapigen
 
 import com.papsign.ktor.openapigen.model.schema.SchemaModel
+import com.papsign.ktor.openapigen.util.getKType
 import kotlin.reflect.KType
-
 
 typealias SchemaMap = Map<KType, SchemaModel<*>>
 

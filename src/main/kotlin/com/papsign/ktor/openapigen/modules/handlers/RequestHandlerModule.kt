@@ -2,7 +2,7 @@ package com.papsign.ktor.openapigen.modules.handlers
 
 import com.papsign.ktor.openapigen.OpenAPIGen
 import com.papsign.ktor.openapigen.annotations.Request
-import com.papsign.ktor.openapigen.classLogger
+import com.papsign.ktor.openapigen.util.classLogger
 import com.papsign.ktor.openapigen.content.type.BodyParser
 import com.papsign.ktor.openapigen.content.type.ContentTypeProvider
 import com.papsign.ktor.openapigen.content.type.SelectedParser

@@ -2,7 +2,7 @@ package com.papsign.ktor.openapigen.schema.builder.provider
 
 import com.papsign.ktor.openapigen.OpenAPIGen
 import com.papsign.ktor.openapigen.OpenAPIGenModuleExtension
-import com.papsign.ktor.openapigen.classLogger
+import com.papsign.ktor.openapigen.util.classLogger
 import com.papsign.ktor.openapigen.model.schema.SchemaModel
 import com.papsign.ktor.openapigen.modules.ModuleProvider
 import com.papsign.ktor.openapigen.modules.ofType

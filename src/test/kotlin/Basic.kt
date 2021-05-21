@@ -4,7 +4,7 @@ import com.papsign.ktor.openapigen.annotations.Request
 import com.papsign.ktor.openapigen.annotations.Response
 import com.papsign.ktor.openapigen.annotations.parameters.PathParam
 import com.papsign.ktor.openapigen.annotations.parameters.QueryParam
-import com.papsign.ktor.openapigen.openAPIGen
+import com.papsign.ktor.openapigen.util.openAPIGen
 import com.papsign.ktor.openapigen.parameters.PathParamStyle
 import com.papsign.ktor.openapigen.route.apiRouting
 import com.papsign.ktor.openapigen.route.info

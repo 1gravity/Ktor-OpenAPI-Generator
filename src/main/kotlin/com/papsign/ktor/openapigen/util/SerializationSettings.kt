@@ -1,4 +1,4 @@
-package com.papsign.ktor.openapigen
+package com.papsign.ktor.openapigen.util
 
 data class SerializationSettings(
     val skipEmptyMap: Boolean = false,

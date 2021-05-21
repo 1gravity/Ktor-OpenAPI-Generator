@@ -6,11 +6,11 @@ import io.ktor.http.*
  * Builder for APIExceptions.
  * This allows to use a syntax like:
  *
- * apiException<NotFoundException, ErrorMessage> {
- *    status = HttpStatusCode.NotFound.description("Customer not found")
- *    example = ErrorMessage("Customer with uuid 26d1229eaba8 not found")
- *    contentFn = { ErrorMessage(it.message ?: "Customer not found") }
- * }
+ *     apiException<NotFoundException, ErrorMessage> {
+ *         status = HttpStatusCode.NotFound.description("Customer not found")
+ *         example = ErrorMessage("Customer with uuid 26d1229eaba8 not found")
+ *        contentFn = { ErrorMessage(it.message ?: "Customer not found") }
+ *     }
  *
  * You can also use the
  */

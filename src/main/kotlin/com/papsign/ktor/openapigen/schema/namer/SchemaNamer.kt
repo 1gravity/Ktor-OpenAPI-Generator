@@ -1,6 +1,6 @@
 package com.papsign.ktor.openapigen.schema.namer
 
-import com.papsign.ktor.openapigen.deepStrip
+import com.papsign.ktor.openapigen.util.deepStrip
 import com.papsign.ktor.openapigen.modules.OpenAPIModule
 import kotlin.reflect.KType
 

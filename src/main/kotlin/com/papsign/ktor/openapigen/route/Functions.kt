@@ -3,7 +3,7 @@ package com.papsign.ktor.openapigen.route
 import com.papsign.ktor.openapigen.APITag
 import com.papsign.ktor.openapigen.annotations.Path
 import com.papsign.ktor.openapigen.content.type.ContentTypeProvider
-import com.papsign.ktor.openapigen.getKType
+import com.papsign.ktor.openapigen.util.getKType
 import com.papsign.ktor.openapigen.modules.handlers.RequestHandlerModule
 import com.papsign.ktor.openapigen.modules.handlers.ResponseHandlerModule
 import com.papsign.ktor.openapigen.modules.registerModule

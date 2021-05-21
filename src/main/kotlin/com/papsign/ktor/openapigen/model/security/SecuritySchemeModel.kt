@@ -1,7 +1,7 @@
 package com.papsign.ktor.openapigen.model.security
 
-import com.papsign.ktor.openapigen.cleanEmptyValues
-import com.papsign.ktor.openapigen.convertToValue
+import com.papsign.ktor.openapigen.util.cleanEmptyValues
+import com.papsign.ktor.openapigen.util.convertToValue
 import com.papsign.ktor.openapigen.model.DataModel
 import com.papsign.ktor.openapigen.model.Described
 import kotlin.reflect.KProperty1

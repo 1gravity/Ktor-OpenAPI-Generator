@@ -7,6 +7,7 @@ import com.papsign.ktor.openapigen.model.info.InfoModel
 import com.papsign.ktor.openapigen.model.server.ServerModel
 import com.papsign.ktor.openapigen.modules.CachingModuleProvider
 import com.papsign.ktor.openapigen.modules.OpenAPIModule
+import com.papsign.ktor.openapigen.util.classLogger
 import io.ktor.application.ApplicationCallPipeline
 import io.ktor.application.ApplicationFeature
 import io.ktor.application.call
@@ -107,7 +108,7 @@ class OpenAPIGen(
             val api = OpenAPIModel()
             val cfg = Configuration(api).apply(configure)
             if (cfg.serveSwaggerUi) {
-                val ui = SwaggerUi(cfg.swaggerUiPath, cfg.swaggerUiVersion)
+                val ui = SwaggerUI(cfg.swaggerUiPath, cfg.swaggerUiVersion)
                 pipeline.intercept(ApplicationCallPipeline.Call) {
                     val cmp = "/${cfg.swaggerUiPath.trim('/')}/"
                     if (call.request.path().startsWith(cmp))

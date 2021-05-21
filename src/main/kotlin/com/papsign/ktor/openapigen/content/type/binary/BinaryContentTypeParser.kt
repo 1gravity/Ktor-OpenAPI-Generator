@@ -11,6 +11,8 @@ import com.papsign.ktor.openapigen.model.schema.DataFormat
 import com.papsign.ktor.openapigen.model.schema.DataType
 import com.papsign.ktor.openapigen.model.schema.SchemaModel
 import com.papsign.ktor.openapigen.modules.ModuleProvider
+import com.papsign.ktor.openapigen.util.getKType
+import com.papsign.ktor.openapigen.util.unitKType
 import io.ktor.application.ApplicationCall
 import io.ktor.http.ContentType
 import io.ktor.http.HttpStatusCode

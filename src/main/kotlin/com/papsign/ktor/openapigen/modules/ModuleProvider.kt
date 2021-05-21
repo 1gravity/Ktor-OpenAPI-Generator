@@ -1,6 +1,6 @@
 package com.papsign.ktor.openapigen.modules
 
-import com.papsign.ktor.openapigen.getKType
+import com.papsign.ktor.openapigen.util.getKType
 import kotlin.reflect.KType
 
 interface ModuleProvider<THIS: ModuleProvider<THIS>> {

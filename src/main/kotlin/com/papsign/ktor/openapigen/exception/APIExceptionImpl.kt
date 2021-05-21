@@ -1,6 +1,6 @@
 package com.papsign.ktor.openapigen.exception
 
-import com.papsign.ktor.openapigen.unitKType
+import com.papsign.ktor.openapigen.util.unitKType
 import io.ktor.http.*
 import kotlin.reflect.KClass
 import kotlin.reflect.KType

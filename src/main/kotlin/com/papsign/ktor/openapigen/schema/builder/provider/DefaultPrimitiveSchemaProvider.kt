@@ -2,7 +2,7 @@ package com.papsign.ktor.openapigen.schema.builder.provider
 
 import com.papsign.ktor.openapigen.OpenAPIGen
 import com.papsign.ktor.openapigen.OpenAPIGenModuleExtension
-import com.papsign.ktor.openapigen.getKType
+import com.papsign.ktor.openapigen.util.getKType
 import com.papsign.ktor.openapigen.model.schema.DataFormat
 import com.papsign.ktor.openapigen.model.schema.DataType
 import com.papsign.ktor.openapigen.model.schema.SchemaModel

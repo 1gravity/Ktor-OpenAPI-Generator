@@ -1,7 +1,7 @@
 package com.papsign.ktor.openapigen.route.response
 
 import com.papsign.ktor.openapigen.annotations.Response
-import com.papsign.ktor.openapigen.getKType
+import com.papsign.ktor.openapigen.util.getKType
 import com.papsign.ktor.openapigen.modules.ofType
 import com.papsign.ktor.openapigen.modules.providers.AuthProvider
 import com.papsign.ktor.openapigen.modules.providers.StatusProvider

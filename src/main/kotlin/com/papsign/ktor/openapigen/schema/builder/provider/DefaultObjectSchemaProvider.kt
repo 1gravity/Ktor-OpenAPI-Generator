@@ -1,7 +1,7 @@
 package com.papsign.ktor.openapigen.schema.builder.provider
 
 import com.papsign.ktor.openapigen.*
-import com.papsign.ktor.openapigen.classLogger
+import com.papsign.ktor.openapigen.util.classLogger
 import com.papsign.ktor.openapigen.model.schema.SchemaModel
 import com.papsign.ktor.openapigen.modules.DefaultOpenAPIModule
 import com.papsign.ktor.openapigen.modules.ModuleProvider
@@ -10,6 +10,8 @@ import com.papsign.ktor.openapigen.schema.builder.FinalSchemaBuilder
 import com.papsign.ktor.openapigen.schema.builder.SchemaBuilder
 import com.papsign.ktor.openapigen.schema.namer.DefaultSchemaNamer
 import com.papsign.ktor.openapigen.schema.namer.SchemaNamer
+import com.papsign.ktor.openapigen.util.getKType
+import com.papsign.ktor.openapigen.util.memberProperties
 import kotlin.reflect.KType
 import kotlin.reflect.KVisibility
 import kotlin.reflect.full.starProjectedType
@@ -46,7 +48,7 @@ object DefaultObjectSchemaProvider : SchemaBuilderProviderModule, OpenAPIGenModu
                     SchemaModel.OneSchemaModelOf(erasure.sealedSubclasses.map { builder.build(it.starProjectedType) })
                 } else {
                     val props = type.memberProperties.filter { it.source.visibility == KVisibility.PUBLIC }
-                    SchemaModel.SchemaModelObj<Any?>(
+                    SchemaModel.SchemaModelObj(
                         props.associate {
                             Pair(it.name, builder.build(it.type, it.source.annotations))
                         },

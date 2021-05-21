@@ -14,9 +14,38 @@ import io.ktor.request.port
 import io.ktor.response.respond
 import java.net.URL
 
-class SwaggerUi(private val basePath: String, private val version: String) {
+class SwaggerUI(private val basePath: String, private val version: String) {
     private val notFound = mutableListOf<String>()
     private val content = mutableMapOf<String, ResourceContent>()
+
+    private class ResourceContent(val resource: URL, val address: String) : OutgoingContent.ByteArrayContent() {
+        private val contentTypes = mapOf(
+            "html" to Html,
+            "css" to CSS,
+            "js" to JavaScript,
+            "json" to ContentType.Application.Json.withCharset(Charsets.UTF_8),
+            "png" to PNG
+        )
+
+        private val bytes by lazy {
+            if (contentType == JavaScript) {
+                resource.readText().replace("http://localhost:3200/oauth2-redirect.html", address + "oauth2-redirect.html").toByteArray()
+            } else resource.readBytes()
+        }
+
+        override val contentType: ContentType? by lazy {
+            val extension = resource.file.substring(resource.file.lastIndexOf('.') + 1)
+            contentTypes[extension] ?: Html
+        }
+
+        override val contentLength: Long? by lazy {
+            bytes.size.toLong()
+        }
+
+        override fun bytes(): ByteArray = bytes
+        override fun toString() = "ResourceContent \"$resource\""
+    }
+
     suspend fun serve(filename: String?, call: ApplicationCall) {
         when (filename) {
             in notFound -> return
@@ -38,33 +67,5 @@ class SwaggerUi(private val basePath: String, private val version: String) {
         val protocol = request.origin.scheme
         return "$protocol://$hostPort/${basePath.trim('/')}/"
     }
-}
 
-
-
-private val contentTypes = mapOf(
-    "html" to Html,
-    "css" to CSS,
-    "js" to JavaScript,
-    "json" to ContentType.Application.Json.withCharset(Charsets.UTF_8),
-    "png" to PNG)
-
-private class ResourceContent(val resource: URL, val address: String) : OutgoingContent.ByteArrayContent() {
-    private val bytes by lazy {
-        if (contentType == JavaScript) {
-            resource.readText().replace("http://localhost:3200/oauth2-redirect.html", address + "oauth2-redirect.html").toByteArray()
-        } else resource.readBytes()
-    }
-
-    override val contentType: ContentType? by lazy {
-        val extension = resource.file.substring(resource.file.lastIndexOf('.') + 1)
-        contentTypes[extension] ?: Html
-    }
-
-    override val contentLength: Long? by lazy {
-        bytes.size.toLong()
-    }
-
-    override fun bytes(): ByteArray = bytes
-    override fun toString() = "ResourceContent \"$resource\""
 }

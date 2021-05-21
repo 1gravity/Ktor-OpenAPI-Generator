@@ -11,6 +11,8 @@ import com.papsign.ktor.openapigen.model.schema.SchemaModel
 import com.papsign.ktor.openapigen.modules.ModuleProvider
 import com.papsign.ktor.openapigen.modules.ofType
 import com.papsign.ktor.openapigen.schema.builder.provider.FinalSchemaBuilderProviderModule
+import com.papsign.ktor.openapigen.util.getKType
+import com.papsign.ktor.openapigen.util.unitKType
 import io.ktor.application.ApplicationCall
 import io.ktor.http.ContentType
 import io.ktor.http.content.PartData

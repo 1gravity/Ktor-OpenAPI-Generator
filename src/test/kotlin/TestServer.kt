@@ -29,7 +29,7 @@ import com.papsign.ktor.openapigen.annotations.type.string.trim.Trim
 import com.papsign.ktor.openapigen.interop.withAPI
 import com.papsign.ktor.openapigen.model.Described
 import com.papsign.ktor.openapigen.model.server.ServerModel
-import com.papsign.ktor.openapigen.openAPIGen
+import com.papsign.ktor.openapigen.util.openAPIGen
 import com.papsign.ktor.openapigen.route.*
 import com.papsign.ktor.openapigen.route.path.normal.NormalOpenAPIRoute
 import com.papsign.ktor.openapigen.route.path.normal.get

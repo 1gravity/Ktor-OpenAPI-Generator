@@ -1,6 +1,6 @@
 package com.papsign.ktor.openapigen.route
 
-import com.papsign.ktor.openapigen.classLogger
+import com.papsign.ktor.openapigen.util.classLogger
 import com.papsign.ktor.openapigen.content.type.*
 import com.papsign.ktor.openapigen.content.type.ktor.KtorContentProvider
 import com.papsign.ktor.openapigen.exception.OpenAPINoParserException
@@ -9,7 +9,7 @@ import com.papsign.ktor.openapigen.modules.CachingModuleProvider
 import com.papsign.ktor.openapigen.modules.OpenAPIModule
 import com.papsign.ktor.openapigen.modules.ofType
 import com.papsign.ktor.openapigen.modules.openapi.HandlerModule
-import com.papsign.ktor.openapigen.openAPIGen
+import com.papsign.ktor.openapigen.util.openAPIGen
 import com.papsign.ktor.openapigen.parameters.handlers.ParameterHandler
 import com.papsign.ktor.openapigen.parameters.util.buildParameterHandler
 import com.papsign.ktor.openapigen.route.response.Responder

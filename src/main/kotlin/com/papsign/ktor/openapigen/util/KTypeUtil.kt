@@ -1,4 +1,4 @@
-package com.papsign.ktor.openapigen
+package com.papsign.ktor.openapigen.util
 
 import kotlin.reflect.*
 import kotlin.reflect.full.createType

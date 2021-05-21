@@ -18,7 +18,7 @@ import com.papsign.ktor.openapigen.model.security.SecuritySchemeModel
 import com.papsign.ktor.openapigen.model.security.SecuritySchemeType
 import com.papsign.ktor.openapigen.model.server.ServerModel
 import com.papsign.ktor.openapigen.modules.providers.AuthProvider
-import com.papsign.ktor.openapigen.openAPIGen
+import com.papsign.ktor.openapigen.util.openAPIGen
 import com.papsign.ktor.openapigen.route.*
 import com.papsign.ktor.openapigen.route.path.auth.OpenAPIAuthenticatedRoute
 import com.papsign.ktor.openapigen.route.path.normal.NormalOpenAPIRoute

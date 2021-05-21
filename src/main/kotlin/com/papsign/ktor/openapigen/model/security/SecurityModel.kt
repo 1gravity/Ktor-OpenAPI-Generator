@@ -1,13 +1,12 @@
 package com.papsign.ktor.openapigen.model.security
 
-import com.papsign.ktor.openapigen.SerializationSettings
-import com.papsign.ktor.openapigen.cleanEmptyValues
-import com.papsign.ktor.openapigen.convertToValue
 import com.papsign.ktor.openapigen.model.DataModel
 import com.papsign.ktor.openapigen.model.Described
+import com.papsign.ktor.openapigen.util.SerializationSettings
+import com.papsign.ktor.openapigen.util.cleanEmptyValues
+import com.papsign.ktor.openapigen.util.convertToValue
 
 class SecurityModel : MutableMap<String, List<*>> by mutableMapOf(), DataModel {
-
     operator fun <T> set(scheme: SecuritySchemeModel<T>, requirements: List<T>) where T: Enum<T>, T: Described {
         this[scheme.name] = requirements
     }

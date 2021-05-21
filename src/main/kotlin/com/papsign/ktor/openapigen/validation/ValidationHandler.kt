@@ -1,7 +1,9 @@
 package com.papsign.ktor.openapigen.validation
 
 import com.papsign.ktor.openapigen.*
-import com.papsign.ktor.openapigen.classLogger
+import com.papsign.ktor.openapigen.util.*
+import com.papsign.ktor.openapigen.util.classLogger
+import com.papsign.ktor.openapigen.util.getKType
 import kotlin.reflect.*
 import kotlin.reflect.full.*
 import kotlin.reflect.jvm.*
@@ -274,7 +276,6 @@ class ValidationHandler private constructor(
     }
 
     companion object {
-
         /**
          * needed because a type is equal to another no matter the annotations
          * @param annotations, be careful that it contains everything, the code may fully rely on it

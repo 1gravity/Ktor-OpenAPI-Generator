@@ -2,8 +2,8 @@ package com.papsign.ktor.openapigen.annotations.type.string.pattern
 
 import com.papsign.ktor.openapigen.annotations.type.common.ConstraintViolation
 import com.papsign.ktor.openapigen.annotations.type.string.NotAStringViolation
-import com.papsign.ktor.openapigen.classLogger
-import com.papsign.ktor.openapigen.getKType
+import com.papsign.ktor.openapigen.util.classLogger
+import com.papsign.ktor.openapigen.util.getKType
 import com.papsign.ktor.openapigen.model.schema.SchemaModel
 import com.papsign.ktor.openapigen.schema.processor.SchemaProcessor
 import com.papsign.ktor.openapigen.validation.Validator

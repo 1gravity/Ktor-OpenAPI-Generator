@@ -1,5 +1,6 @@
-package com.papsign.ktor.openapigen
+package com.papsign.ktor.openapigen.util
 
+import com.papsign.ktor.openapigen.OpenAPIGen
 import com.papsign.ktor.openapigen.model.DataModel
 import io.ktor.application.Application
 import io.ktor.application.feature
