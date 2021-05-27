@@ -30,7 +30,14 @@ class ModularParameterHandler<T>(val parsers: Map<KParameter, Builder<*>>, val c
 
     override fun parse(parameters: Parameters, headers: Headers): T {
         return constructor.callBy(parsers.mapValues {
-            val value = it.value.build(it.key.name.toString(), it.key.remapOpenAPINames(parameters.toMap() + headers.toMap()))
+            val headerMap = headers.toMap().entries
+                .groupBy { entry -> entry.key.toLowerCase() }
+                .mapValues { entry -> entry.value.flatMap { mapEntry -> mapEntry.value } }
+            val value = it.value.build(
+                it.key.name.toString(),
+                it.key.remapOpenAPINames(parameters.toMap() + headerMap)
+            )
+
             if (value != null || it.key.type.isMarkedNullable) {
                 value
             } else {

@@ -48,7 +48,7 @@ publishing {
         create<MavenPublication>("maven") {
             group = "com.1gravity"
             artifactId = "ktor-openapi-generator"
-            version = "0.2-beta.17"
+            version = "0.2-beta.20"
 
             from(components["java"])
 
